@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nim Game</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="project.css">
+
+</head>
+<body>
+
+<div class="mx-5">
+    <div class="mx-5">
+    <div class="mx-5 mt-4">
+        <div class="div2  mx-5 position-relative">
+
+            <div class="w-100 divH">
+                <div class=" row1 d-flex justify-content-center">
+                    <div ><img class="rowCalc1" src="download.png" id="r1"> </div>   
+                </div>
+            </div>  
+            <div class="w-100 divH">
+                <div class=" row2 d-flex justify-content-center">
+                    <div class="rowH"><img class="rowCalc2" src="download.png" id="r23"></div>
+                    <div class="rowH"><img class="rowCalc2" src="download.png" id="r22"></div>
+                    <div class="rowH"><img class="rowCalc2" src="download.png" id="r21"></div>
+                    
+                </div>
+            </div>  
+            <div class="w-100 divH">
+                <div class=" row3 d-flex justify-content-center">
+                    <div class="rowH"><img class="rowCalc3" src="download.png" id="r35"></div>
+                    <div class="rowH"><img class="rowCalc3" src="download.png" id="r34"></div>
+                    <div class="rowH"><img class="rowCalc3" src="download.png" id="r33"></div>
+                    <div class="rowH"><img class="rowCalc3" src="download.png" id="r32"></div>
+                    <div class="rowH"><img class="rowCalc3" src="download.png" id="r31"></div>
+                   </div>
+            </div>  
+            <div class="w-100 divH">
+                <div class=" row4 d-flex justify-content-center">
+                    <div class="rowH"><img class="rowCalc4" src="download.png" id="r47"></div>
+                    <div class="rowH"><img class="rowCalc4" src="download.png" id="r46"></div>
+                    <div class="rowH"><img class="rowCalc4" src="download.png" id="r45"></div>
+                    <div class="rowH"><img class="rowCalc4" src="download.png" id="r44"></div>
+                    <div class="rowH"><img class="rowCalc4" src="download.png" id="r43"></div>
+                    <div class="rowH"><img class="rowCalc4" src="download.png" id="r42"></div>
+                    <div class="rowH"><img class="rowCalc4" src="download.png" id="r41"></div>
+                    </div>
+            </div>  
+
+        
+
+            <button class="button2 btn1 rounded-pill p-2 position-absolute " onclick="del1()">Row 1</button>  
+            <button class="button2 btn2 rounded-pill p-2 position-absolute"  onclick="del2()">Row 2</button>      
+            <button class="button2 btn3 rounded-pill p-2 position-absolute"  onclick="del3()">Row 3</button>  
+            <button class="button2 btn4 rounded-pill p-2 position-absolute" onclick="del4()" >Row 4</button> 
+
+
+            <button class="button button1 btn5 rounded-pill position-absolute"  onclick="newGame()" style="float: right; margin-right: 20px;">New Game</button> 
+      
+            <button class="button button1 btn6 rounded-pill position-absolute" onclick="pcTurn(), clacSum()" style="float: right; margin-right: 20px;">PC Turn</button>      
+      
+      
+            <button class="exitBtn  p-3 button1 rounded-pill position-absolute"><a href="project.html" style="text-decoration: none; color: black; ">Back to home</a></button>
+      
+
+       
+        </div>
+    </div>
+    
+    </div>
+</div>
+    
+ 
+
+
+<script>
+    var M2=1, M3=1, M4=1;
+    
+    let flagBtn1=false;
+    let flagBtn3=false;
+    let flagBtn2=false;
+    let flagBtn4=false;
+
+   
+
+    function del1()
+    {
+        if(flagBtn2 || flagBtn3 ||flagBtn4) return;
+        flagBtn1=true;
+        document.getElementById('r1').style.display = 'none';
+   
+    }
+    function del2()
+    {
+        if(flagBtn1 || flagBtn3 ||flagBtn4) return;
+
+        flagBtn2=true;
+    if(M2==1){
+            document.getElementById('r21').style.display = 'none';
+            M2+=1;
+        }
+    else if(M2==2){
+        document.getElementById('r22').style.display = 'none';
+        M2+=1;
+    }
+    else {
+        document.getElementById('r23').style.display = 'none';
+
+    }
+   
+    }
+    function del3()
+    {
+        if(flagBtn1 || flagBtn2 ||flagBtn4) return;
+
+flagBtn3=true;
+    if(M3==1){
+            document.getElementById('r31').style.display = 'none';
+            M3+=1;
+        }
+    else if(M3==2){
+        document.getElementById('r32').style.display = 'none';
+        M3+=1;
+    }
+    else if(M3==3){
+        document.getElementById('r33').style.display = 'none';
+        M3+=1;
+    }
+    else if(M3==4){
+        document.getElementById('r34').style.display = 'none';
+        M3+=1;
+    }
+    else {
+        document.getElementById('r35').style.display = 'none';
+
+    }
+    }
+    function del4()
+    {
+        if(flagBtn1 || flagBtn3 ||flagBtn2) return;
+
+flagBtn4=true;
+    if(M4==1){
+        document.getElementById('r41').style.display = 'none';
+        M4+=1;
+        }
+    else if(M4==2){
+        document.getElementById('r42').style.display = 'none';
+        M4+=1;
+    }
+    else if(M4==3){
+        document.getElementById('r43').style.display = 'none';
+        M4+=1;
+    }
+    else if(M4==4){
+        document.getElementById('r44').style.display = 'none';
+        M4+=1;
+    }
+    else if(M4==5){
+        document.getElementById('r45').style.display = 'none';
+        M4+=1;
+    }
+    else if(M4==6){
+        document.getElementById('r46').style.display = 'none';
+        M4+=1;
+    }
+    else {
+        document.getElementById('r47').style.display = 'none';
+
+    }   
+    }
+    function newGame(){
+  //initial
+     flagBtn1=false;
+     flagBtn3=false;
+     flagBtn2=false;
+     flagBtn4=false;
+  M2=1;
+        M3=1;
+        M4=1;
+  document.getElementById('r1').style.display = 'initial';
+
+document.getElementById('r21').style.display = 'initial';
+document.getElementById('r22').style.display = 'initial';
+document.getElementById('r23').style.display = 'initial';
+
+document.getElementById('r31').style.display = 'initial';
+document.getElementById('r32').style.display = 'initial';
+document.getElementById('r33').style.display = 'initial';
+document.getElementById('r34').style.display = 'initial';
+document.getElementById('r35').style.display = 'initial';
+document.getElementById('r41').style.display = 'initial';
+document.getElementById('r42').style.display = 'initial';
+document.getElementById('r43').style.display = 'initial';
+document.getElementById('r44').style.display = 'initial';
+document.getElementById('r45').style.display = 'initial';
+document.getElementById('r46').style.display = 'initial';
+document.getElementById('r47').style.display = 'initial';
+    }
+
+
+    function pcTurn(){
+     flagBtn1=false;
+     flagBtn3=false;
+     flagBtn2=false;
+     flagBtn4=false;  
+    }
+
+    function clacSum(){
+        let sumFinal=0;
+        let sum1=0;
+        let sum2=0;
+        let sum3=0;
+        let sum4=0;
+        // row1
+        var images = document.getElementsByClassName('rowCalc1');
+for (var i = 0; i < images.length; i++) {
+  if( images[i].style.display == 'none')
+  {
+sum1 =sum1+1;
+  }
+}
+sum1 = 1-sum1;
+console.log("number of img in row 1");
+console.log(sum1);
+      /// row2
+       
+       var images = document.getElementsByClassName('rowCalc2');
+for (var i = 0; i < images.length; i++) {
+  if( images[i].style.display == 'none')
+  {
+sum2 =sum2+1;
+  }
+}
+sum2= 3- sum2;
+console.log("number of img in row 2");
+console.log(sum2); 
+
+// row3
+var images = document.getElementsByClassName('rowCalc3');
+for (var i = 0; i < images.length; i++) {
+  if( images[i].style.display == 'none')
+  {
+sum3 =sum3+1;
+  }
+}
+sum3= 5- sum3;
+console.log("number of img in row 3");
+console.log(sum3); 
+
+// row4
+var images = document.getElementsByClassName('rowCalc4');
+for (var i = 0; i < images.length; i++) {
+  if( images[i].style.display == 'none')
+  {
+sum4 =sum4+1;
+  }
+}
+sum4= 7- sum4;
+console.log("number of img in row 4");
+console.log(sum4); 
+
+
+sumFinal = sum1 ^ sum2 ^ sum3 ^ sum4;
+console.log("value sumation zero");
+console.log(sumFinal);
+if(sum1 >= sumFinal){
+    for (var i = 0; i < sumFinal; i++) {
+        del1();
+       
+    }
+}else if(sum2 >= sumFinal){
+    for (var i = 0; i < sumFinal; i++) {
+        del2();
+    }
+}
+else if(sum3 >= sumFinal){
+    for (var i = 0; i < sumFinal; i++) {
+        del3();
+    }
+}
+else if(sum4 >= sumFinal){
+    for (var i = 0; i < sumFinal; i++) {
+        del4();
+    }
+}else{
+    if(sum1 >0){
+        for (var i = 0; i < sum1; i++) {
+        del1();
+    }   
+    } else if(sum2 >0){
+        for (var i = 0; i < sum2; i++) {
+        del2();
+    } 
+    }else if(sum3 >0){
+        for (var i = 0; i < sum3; i++) {
+        del3();
+    } 
+    }else if(sum4 >0){
+        for (var i = 0; i < sum4; i++) {
+        del4();
+    } 
+    }
+}
+
+     flagBtn1=false;
+     flagBtn3=false;
+     flagBtn2=false;
+     flagBtn4=false;
+let s =sum1 + sum2 + sum3 + sum4 ;
+ if( s==0) console.log("win !! ");
+
+
+
+
+
+    }
+
+
+
+
+
+
+    </script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
